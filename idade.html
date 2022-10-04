@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <title>Idade por data</title>
+</head>
+<!--ESTILO CSS-->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+*{
+    margin: 0;
+}
+html{
+    height: 100%;
+}
+/*animação*/
+@keyframes movcolor {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+.main{
+    width:100%;
+    height:70px;
+    background: linear-gradient(45deg, #fff382,#4389bf,#43bf98);
+    background-size: 500% 500%;
+    animation: movcolor 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*fim animação*/
+.main h1{
+    text-align: center;
+    font-family: 'Shippori Antique B1', sans-serif;
+    color: #f0f0f0;
+    cursor: default;
+}
+.all{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+.part1{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    height: 680px;
+    justify-content: center;
+    background: #f0f0f0;
+}
+.part1 div{
+    align-self: center;
+}
+.part1 section{
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    align-items: center;
+}
+.part1 div>div{
+align-self: center;
+display: flex;
+align-items: center;
+}
+.part1 h1{
+    margin: 5px;
+    margin-bottom: 10px;
+    font-family: 'Shippori Antique B1', sans-serif;
+    font-size: 20px;
+    color: #4389bf;
+    line-height: 20px;
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+.part1 input[type="number"]{
+    border: transparent;
+    background: white;
+    border-radius: 29px;
+    font-size: 28px;
+    padding: 5px;
+    padding-bottom: 1px;
+    width: 55px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 600;
+    align-self: center;
+    margin: 0px 5px;
+}
+.part1 div section input[type="number"]:nth-child(3){
+  width: 95px;
+}
+.part1 input[type="number"]::placeholder{
+    font-size: 21px;
+}
+.part1 button{
+    width: fit-content;
+    display: flex;
+    height: fit-content;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #4389bf;
+    border: none;
+    padding: 6px;
+    margin: 0px 5px;
+    border-radius: 9px;
+    align-self: center;
+    cursor: pointer;
+    color: white;
+    align-items: center;
+}
+.part1 button h4{
+    margin-right:3px ;
+}
+.part1 input[type="radio"]{
+margin: 5px;
+}
+.part1 div > div label{
+    font-family: 'Comfortaa', cursive;
+    margin-top: 3px;
+}
+.part2{
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 680px;
+    background: url(img/hourglass.png);
+    flex-direction: column;
+    background-size:150px 150px !important;
+}
+.part2 h1{
+    margin: 0;
+    font-family: 'Shippori Antique B1', sans-serif;
+    background: -webkit-linear-gradient(90deg, #70befa,#4389bf 68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.part2 p{
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 600;
+    color: #0076d1;
+}
+h5{
+    background: linear-gradient(45deg, #fff382,#4389bf,#43bf98);
+    background-size: 500% 500%;
+    animation: movcolor 10s ease infinite;
+    color: white;
+    font-family: 'Shippori Antique B1', sans-serif;
+    text-align: center;
+    padding: 3px;
+}
+@media screen and (max-width: 300px) {
+    .all{
+        display: block;
+    }
+    .part1{
+        width: 100%;
+        height: 320px;
+        font-size: 13px;
+    }
+    .part2{
+        width: 100%;
+        height: 320px;
+        background-size:100px 100px !important;
+    }
+    .part2 h1{
+        font-size: 18px;
+    }
+    .main h1{
+        font-size: 14px;
+    }
+    .part1 h1{
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+    .part1 div section input[type="number"]:nth-child(3) {
+       width: 56px;
+    }
+    .part1 input[type="number"] {
+    width: 35px;
+    margin: 0px 2px;
+    height: 20px;
+    font-size: 18px;
+}
+.part1 input[type="number"]::placeholder{
+    font-size: 18px;
+}
+.part1 button h4{
+    font-size: 14px;
+}
+
+}
+@media screen and (max-width: 680px) {
+    .all{
+        display: block;
+    }
+    .part1{
+        width: 100%;
+        height: 320px;
+        font-size: 15px;
+    }
+    .part2{
+        width: 100%;
+        height: 320px;
+        background-size:100px 100px !important;
+    }
+    .part2 h1{
+        font-size: 28px;
+    }
+    .main h1{
+        font-size: 17px;
+    }
+    .part1 h1{
+        font-size: 18px;
+    }
+    .part1 div section input[type="number"]:nth-child(3) {
+       width: 56px;
+    }
+    .part1 input[type="number"] {
+    width: 42px;
+    margin: 0px 2px;
+    height: 28px;
+    font-size: 22px;
+}
+.part1 input[type="number"]::placeholder{
+    font-size: 18px;
+}
+.part1 button h4{
+    font-size: 18px;
+}
+
+}
+@media screen and (max-width: 1000px) {
+    .all{
+        display: block;
+    }
+    .part1{
+        width: 100%;
+        height: 350px;
+        font-size: 15px;
+    }
+    .part2{
+        width: 100%;
+        height: 350px;
+        background-size:100px 100px !important;
+    }
+    .main h1{
+        font-size: 21px;
+    }
+    .part1 h1{
+        font-size: 18px;
+    }
+    .part1 div section input[type="number"]:nth-child(3) {
+       width: 56px;
+    }
+
+}
+</style>
+<!--CORPO HTML-->
+<body>
+    <div class="main">
+        <h1 class="animate__animated animate__pulse" alt="data de aniversário">Descubra a idade de alguém pela data de nascimento!</h1>
+    </div>
+
+    <div class="all">
+        <div class="part1">
+            <div>
+                <h1 class="animate__animated animate__zoomInDown">Digite a data de nascimento e <br>selecione o gênero aqui!</h1>
+                <section>
+                    <input type="number" min="1" max="31" id="day" placeholder="dd">
+                    <input type="number" min="1" max="12" id="mouth" placeholder="mm">
+                    <input type="number" min="1900" max="2099" id="year" placeholder="aaaa">
+
+                    <button type="button" value="Iniciar" id="submit"> <h4>Iniciar</h4> <img src="img/confetti.png" alt=""> </button>
+                </section>  
+                <div>
+                    <input type="radio" name="gender" id="male" value="masculino" checked><label for="male">Masculino</label> 
+                    <input type="radio" name="gender" id="female" value="feminino"> <label for="female">Feminino</label>     
+                </div>
+            </div> 
+        </div>
+
+        <div class="part2">
+            <h1 id="til">O resultado aparecerá aqui.</h1>
+            <p id="desc">Aperte em "Iniciar"...</p>
+        </div>
+    </div>
+
+        <h5>Direitos Reservados: Victor Daniel</h5>
+    <!--CÓDIGO JS-->
+    <script>   
+
+        // botão
+        var btn = document.getElementById('submit').addEventListener('click',function (){
+            
+            ano = document.getElementById('year');
+            mes = document.getElementById('mouth');
+            dia = document.getElementById('day');
+
+             //-1 se for em um mês anterior, ou dia anterior
+            function menos(v) {
+                v = v - 1;
+                return v;
+            }
+
+            var anoatual = new Date().getFullYear();
+             var mesatual = new Date().getMonth() + 1;
+             var diatual = new Date().getDate();
+
+            var calc = anoatual - ano.value;
+            var calcm = anoatual - ano.value;
+            var calcmd = anoatual - ano.value;
+
+             var anoatual = new Date().getFullYear();
+             var mesatual = new Date().getMonth() + 1;
+             var diatual = new Date().getDate();
+
+            let til = document.getElementById('til');
+
+            //click no botão (se estiver vazio e outros paâmetros)
+            if (dia.value == "" || mes.value == "" || ano.value == "" || ano.value > anoatual) {
+                alert('Dados inválidos, preencha novamente com atenção.');
+
+            }else{
+                
+            //tomada de decisões (-1 se for em um mês anterior, ou dia anterior)
+            if (mesatual < mes.value) {
+                calcm = menos(calcm);
+                til.innerHTML=`${calcm} anos!`
+            }else if (mesatual == mes.value) {
+                if (diatual < dia.value) {
+                calcmd = menos(calcmd);
+                til.innerHTML=`${calcmd} anos!`
+                }else if(diatual >= dia.value){
+                    til.innerHTML=`${calc} anos!`
+                }
+            }else{
+                til.innerHTML=`${calc} anos!`
+            }
+            
+            //masc. ou fem.
+            var m = document.getElementById('male');
+            var f = document.getElementById('female');
+
+            desc = document.getElementById('desc');
+
+            //tomada de decisões - masc. fem.
+            if (m.checked) {
+                desc.innerHTML = `Gênero ${m.value}.`;
+            }else if (f.checked){
+                desc.innerHTML = `Gênero ${f.value}.`;
+            }
+
+        }
+        //fim click botão
+            
+            //capa de fundo
+            if (calc < 6 || calcm < 6 || calcmd < 6){ //bebê
+
+                if (m.checked) {//menino
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/baby-boy.png)';
+                   
+                }else{//menina
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/baby-girl.png)';
+                }
+
+            }else if (calc < 14 || calcm < 14 || calcmd < 14) {//criança
+                
+                
+                if (m.checked) {//menino
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/little-boy.png)';
+                }else{//menina
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/little-girl.png)';
+                }
+
+            }else if (calc < 20 || calcm < 20 || calcmd < 20) {//adoslecente
+                
+                if (m.checked) {//menino
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/young-boy.png)';
+                }else{//menina
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/young-girl.png)';
+                }
+
+            }else if (calc < 55 || calcm < 55 || calcmd < 55) {//adulto
+                
+                if (m.checked) {//homem
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/adult-man.png)';
+                }else{//mulher
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/woman.png)';
+                }
+
+            }else if (calc > 54 || calcm > 54 || calcmd > 54) {//idoso
+                
+                if (m.checked) {//homem
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/old-man.png)';
+                }else{//mulher
+                    document.getElementsByClassName('part2')[0].style = 'background: url(img/grandmother.png)';
+                }
+
+            }
+            //fim capa de fundo
+            console.log(calcmd);
+        });
+        
+        
+
+    </script>
+</body>
+</html>

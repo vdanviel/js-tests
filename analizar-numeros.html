@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Números</title>
+</head>
+<style>
+    html{
+        background:linear-gradient(145deg,#5c5cff,#3d93fd 30%,#07f1f8);
+        height: 100%;
+    }
+    body{
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 10px;
+    }
+    h1{
+        text-align: center;
+        font-family: -webkit-pictograph;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    .painel{
+        background: #ececec;
+        width: fit-content;
+        border-radius: 16px;
+        align-self: center;
+        padding: 12px 0px;
+        margin-bottom: 15px;
+    }
+    i{
+        font-family: -webkit-pictograph;
+        text-align: center;
+        align-self: center;
+    }
+    p{
+        font-family: -webkit-pictograph;
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+    #conclu{
+        font-family: -webkit-pictograph;
+        font-size: 20px;
+        font-weight: bold;
+        /*fundo*/
+        background: white;
+        width: fit-content;
+        align-self: center;
+        padding:0px 10px;
+        text-align: left;
+        margin: 0;
+    }
+    #conclu h6{
+        margin: 3px 0px;
+        color: #5b5eff;
+    }
+    #conclu i{
+        text-align: left;
+    }
+    #cmp{
+        border: none;
+        border-radius: 16px;
+        width: 15%;
+        height: 24px;
+        font-family: -webkit-pictograph;
+        font-size: 15px;
+    }
+    #add{
+        border: none;
+        background: #4b7afd;
+        border-radius: 16px;
+        font-family: -webkit-pictograph;
+        font-weight: bold;
+        padding: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    section:last-child{
+        flex-direction: row;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #fini{
+        border: none;
+        background: #4b7afd;
+        border-radius: 16px;
+        font-family: -webkit-pictograph;
+        font-weight: bold;
+        padding: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    #clean{
+        display: flex;
+        height: 34px;
+        font-family: -webkit-pictograph;
+        font-weight: 600;
+        background-color: #22c0fa;
+        border: none;
+        padding: 5px;
+        border-radius: 16px;
+        align-self: center;
+        cursor: pointer;
+        align-items: center;
+    }
+    #clean img{
+        margin-left: 3px;
+    }
+    #itens{
+        background: white;
+        width: fit-content;
+        align-self: center;
+    }
+    #itens h3{
+        margin: 0;
+        font-family: -webkit-pictograph;
+        padding: 10px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .seta{
+        align-self: center;
+    }
+    .infos{ 
+        align-self: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    h5{
+        text-align: center;
+        font-family: -webkit-pictograph;
+        font-weight: bold;
+        margin: 0;
+        margin-top: 15px;
+    }
+</style>
+<body>
+    
+
+    <h1>Analizador de Números</h1>
+    <p>Digite um número de 1 à 100:</p>
+
+    <div class="painel">
+        <section>
+            <input type="number" name="" id="cmp">
+            <button id="add">Adicionar Número</button>
+            <button id="fini">Finalizar</button>
+            <button id="clean" onclick="limpar()" onmouseenter="black()" onmouseleave="white()"> Limpar <img src="img/white-trash.png" alt="lixo"></button>
+        </section>    
+    </div>
+
+    <div class="infos">
+        <i>Analizando...</i>
+
+        <div id="itens"></div>
+
+        <span class="seta"></span>
+
+        <p id="conclu"></p>
+    </div>
+
+    <h5>Direitos Reservados: Victor Daniel</h5>
+
+    <!--JAVASCRIPT-->
+    <script>
+        var cmp = document.getElementById('cmp');//campo
+        var add = document.getElementById('add');//btn add
+        var f = document.getElementById('fini');//btn finalizar
+
+        var list = document.getElementById('itens');//lista dos itens adicionados
+        var conclu = document.getElementById('conclu');//texto da analize do btn finalizar
+
+        var btnimg = document.querySelector('img');//imagem de lixo no btn limpar
+
+        var divinf = document.querySelector('.infos');;//campos das informações (lista, seta e analize)
+        var es = document.getElementsByClassName('seta')[0];//para criar a seta entre os elementos
+
+        img = document.createElement('img');//seta é criada no back-end
+
+        var listitens = [];//array para a analize posterior
+
+        add.addEventListener('click',adicionar)
+
+        vezes = 0;//delimitador
+
+        //ADICIONAR NÚMEROS NA LISTA E GUARDAR A INFORÇÃO NO ARRAY (BOTÃO ADCIONAR)
+        function adicionar(){
+            conclu.innerHTML = "";
+
+             //excluir a seta se existir
+             if (img) {
+                img.remove();
+            }
+
+            if (cmp.value.length == 0 || cmp.value > 100) {
+                alert('Atenção. O valor do campo é inválido. Tente novamente.')
+                cmp.value = "";
+            } else {
+
+                //excluir o "Analizando..."
+                if (document.querySelector('i')) {
+                    document.querySelector('i').remove();
+                }
+
+                //demilitador - contagem
+                vezes = vezes + 1;
+                if (vezes < 7) {
+                    list.innerHTML += `<h3>Valor ${cmp.value} adicionado.</h3>`;
+                    
+                    listitens.push(cmp.value);
+                    listitensNum = listitens.map(Number); 
+                }else{
+                    alert('Você alcançou o limite de números que podem ser cadastrados. Aperte em LIMPAR para recomeçar.');
+                }
+        }
+    }
+
+    //soma dos números
+     function Somando(array) {
+        soma = 0;
+        for (var c = 0; c < array.length ;c++) {
+            soma = soma + array[c];
+        }
+        return soma;
+    }
+
+    //ANALIZE DOS NÚMEROS (BOTÃO FINALIZAR)
+    f.addEventListener("click",finalizar);
+
+        function finalizar() {
+            if (listitens.length == 0) {
+                alert('Você precisa adicionar algum valor antes de finalizar.');
+            } else {
+
+                //seta é encaixada
+                es.appendChild(img).src = 'img/right-arrow.png';
+
+                //analize (se o usuário cadastrar somente um valor, a analize será menor)
+                if (listitens.length > 1) {
+                conclu.innerHTML =
+                `<i><h6>Analize das informações:</h6></i>
+                <h6>- O total de valores cadastrados é de ${listitens.length}</h6>
+                <h6>- O maior valor digitado foi = ${Math.max(...listitensNum)}</h6>
+                <h6>- O menor valor digitado foi = ${Math.min(...listitensNum)}</h6>
+                <h6>- A soma de todos os números cadastrados é = ${Somando(listitensNum)}</h6>
+                <h6>- A média de de todos os números é = ${Somando(listitensNum) / listitens.length}</h6>`;
+                } else {
+                conclu.innerHTML =
+                `<i><h6>Analize das informações:</h6><i>
+                <h6>- O total de valores cadastrados é de ${listitens.length}</h6>
+                <h6>Cadastre mais de 1 valor para uma analize mais completa...</h6>`;
+                }
+            }
+        }
+
+        //BOTÃO LIMPAR
+        function limpar(){
+            listitens = [];
+            listitensNum = [];
+            list.innerHTML = "";
+            conclu.innerHTML = "";
+            cmp.value = "";
+            vezes = 0;
+
+            //excluir a seta se existir
+            if (img) {
+                img.remove();
+            }
+
+            //Analizando permanece se existir, se não existir é adicionado
+            if (document.querySelector('i')) {
+                  
+                }else{
+                    i = document.createElement('i');
+                    divinf.appendChild(i).innerText = 'Analizando...';    
+            } 
+
+        }
+
+        //mudar na entrada do mouse
+        function black() {
+            btnimg.src = 'img/black-trash.png'
+        }
+        //mudar na saida do mouse
+        function white() {
+            btnimg.src = 'img/white-trash.png'
+        }
+            
+
+    </script>
+</body>
+</html>

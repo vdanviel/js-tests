@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="img/clock.ico"> 
+    <title>Horário Atual</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+    /*animação*/
+    /*clowd*/
+    .clowd{
+    animation: clowd 150s linear infinite;
+    }
+    @keyframes clowd {
+    from{
+        background-position-x: 0px;
+    }
+    to{
+        background-position-x: 1100px;
+    }
+}
+    /*star*/
+    .star{
+    animation: star 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes star {
+    from{
+        background-position-y: 5px;
+    }
+
+}
+    /*style*/
+    html{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    body{
+        background-size: 338px 344px !important;
+    }
+    .all{        
+        display: flex;
+        justify-content: space-around !important;
+        flex-direction: column;
+        height: 675px;
+        text-align: center;
+    }
+    .all img{
+        align-self: center;
+        width: 35%;
+    }
+    .bl{
+        background-color: #f0f0f0;
+        border-radius: 30px;
+        padding: 15px;
+        width: -moz-fit-content;
+        width: fit-content;
+        align-self: center;
+    }
+    .bl h2{
+        font-family: 'Bebas Neue', cursive;
+        font-size: 45px;
+        margin: 0;
+        text-align: center;
+
+    }
+   .bl div h3{
+        font-family: 'Comfortaa', cursive;
+        margin:0;
+        text-align: center;
+        line-height: 28px;
+   } 
+   .reset img{
+       background-color: #f0f0f0;
+       border-radius: 50%;
+       width:8% !important;
+       padding:22px ;
+        cursor: pointer;
+   }
+
+
+   /*responsivo 280 pra trás*/
+   @media (max-width: 280px) {
+    body{
+        background-size: 235px 236px !important;
+    }
+    .all {
+    height: 450px;
+    }
+    .bl h2{
+        font-size: 30px;
+    }
+    .bl div h3{
+        line-height: 15px;
+        font-size: 12px;
+        line-height: unset;
+    }
+    .all img{
+        width: 50%;
+    }
+    .reset img{
+       width: 12%;
+       padding: 10px;
+       align-self: center;
+   }
+}
+   /*responsivo 480 pra trás*/
+   @media (max-width: 480px) {
+    body{
+        background-size: 235px 236px !important;
+    }
+    .all {
+    height: 575px;
+    }
+    .bl h2{
+        font-size: 30px;
+    }
+    .bl div h3{
+        line-height: 15px;
+        font-size: 12px;
+        line-height: unset;
+    }
+    .all img{
+        width: 50%;
+    }
+    .reset img{
+       width: 12%;
+       padding: 15px;
+       align-self: center;
+   }
+}
+    /*responsivo 750 pra trás*/
+@media (max-width: 750px) {
+    body{
+        background-size: 235px 236px !important;
+    }
+    
+    .all {
+    height: 575px;
+    }
+    .bl h2{
+        font-size: 30px;
+    }
+    .bl div h3{
+        line-height: 15px;
+        font-size: 12px;
+        line-height: unset;
+    }
+    .all img{
+        width: 30%;
+    }
+    .reset img{
+       width: 12%;
+       padding: 15px;
+       align-self: center;
+   }
+}
+
+</style>
+<body class="clowd star">
+
+    <div class="all">
+        <img id="img" src="" alt="">
+
+        <div class="bl">
+            <h2 id="hrs"></h2>
+
+            <div>
+                <h3 id="desc"></h3>
+            </div>
+        </div>
+
+        <div class="reset">
+            <img src="img/refresh.png" alt="reload" id="reset">
+        </div>
+    </div>
+
+    <!--JAVASCRIPT-->
+    <script>
+
+        //ESTILO PRINCIPAL
+        //mudança automática conforme o horário
+        function mainstyle(){
+            setInterval(function(){// setInterval - coloca um intervalo de atualização automática de algo em cada tempo determinado no final do bloco.
+                let desc = document.getElementById('desc');
+
+                if (h < 6){ //madrugada
+                    let img = document.getElementById('img').src="img/moon.png";
+                    desc.innerHTML = `Boa madrugada! Agora são exatamente ${h}:${m} da madrugada.<br>
+                    Te desejamos um ótimo sono!`;
+                    document.body.style.backgroundColor="#122A40";
+                    document.body.style.backgroundImage="url('img/back-stars.png')";
+                    document.body.classList.remove("clowd");
+                }else if (h < 13){ //manhã
+                    let img = document.getElementById('img').src="img/sun.png";
+                    desc.innerHTML = `Bom dia! Agora são exatamente ${h}:${m} da manhã.<br>
+                    Te desejamos um ótimo dia!`;
+                    document.body.style.background='#F8F286';
+                    document.body.style.backgroundImage="url('img/back-clouds.png')";
+                    document.body.classList.remove("star");
+                }else if (h < 18){ //tarde
+                    let img = document.getElementById('img').src="img/sunset.png";
+                    desc.innerHTML = `Boa tarde! Agora são exatamente ${h}:${m} da tarde.<br>
+                    Te desejamos uma ótima tarde!`;
+                    document.body.style.background='#F2C879';
+                    document.body.style.backgroundImage="url('img/back-clouds.png')";
+                    document.body.classList.remove("star");
+                }else if (h <= 23){ //noite
+                    let img = document.getElementById('img').src="img/moon.png";
+                    desc.innerHTML = `Boa noite! Agora são exatamente ${h}:${m} da noite.<br>
+                    Te desejamos uma ótima noite!`;
+                    document.body.style.backgroundColor="#3C5E73";
+                    document.body.style.backgroundImage="url('img/back-stars.png')";
+                    document.body.classList.remove("clowd");
+                }
+
+        }, 1000); //1 é instântaneo, porque a contaguem está em milisegundos.
+        }
+        mainstyle();
+        //fim ESTILO PRINCIPAL
+
+        //RELÓGIO
+        //adicionar "0" antes das caracteristicas individuais
+        function addzero(sm){
+            sm = sm < 10? "0"+ sm : sm;
+            return sm;
+        }
+        //funcão do relógio automático
+        function horas(){
+            let cmp = document.getElementById('hrs');
+             h = new Date().getHours();
+             m = new Date().getMinutes();
+             s = new Date().getSeconds();
+
+            h = addzero(h);
+            m = addzero(m);
+            s = addzero(s);
+            cmp.innerHTML = `${h}:${m}:${s}`;
+
+            setTimeout(function(){
+                horas();
+            }, 1000);
+        }
+        horas();
+        //fim RELÓGIO 
+
+        //BOTÃO DE RESETAR
+            document.getElementById('reset').addEventListener("click", resetar);
+
+            function resetar(){
+                location.reload();
+            }
+        //BOTÃO DE RESETAR
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<style>
+    body{
+        background-image: url('img/calculator-ge6ba76aa0_1920.jpg');
+    }
+    h1{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size:40px;
+        color: white;
+        text-align: center;
+    }
+    h5{
+        align-self: center;
+        color: white;
+    }
+    input[type="number"]{
+        margin: 0px 10px;
+        height: 15px;
+        align-self: center;
+        
+    }
+    input[type="button"]{
+        margin: 0px 10px;
+        height: 25px;
+        align-self: center;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+
+    }
+    div{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<body>
+
+    <div>
+        <h1>Somar Valores</h1>
+
+        <div>
+            <input type="number" id="nso1">
+            <h5>+</h5> 
+            <input type="number" id="nso2">
+            <input type="button" value="somar" id="somar">
+        </div>     
+    </div>
+
+    <div>
+        <h1>Multiplicar Valores</h1>
+
+        <div>
+            <input type="number" id="nmu1">
+            <h5>X</h5>
+            <input type="number" id="nmu2">
+            <input type="button" value="multiplicar" id="multiplicar">
+        </div>     
+    </div>
+    
+    <div>
+        <h1>Subtrair Valores</h1>
+
+        <div>
+            <input type="number" id="nsu1">
+            <h5>-</h5>
+            <input type="number" id="nsu2">
+            <input type="button" value="subtrair" id="subtrair">
+        </div>     
+    </div>
+
+    <div>
+        <h1>Dividir Valores</h1>
+
+        <div>
+            <input type="number" id="ndi1">
+            <h5>/</h5>
+            <input type="number" id="ndi2">
+            <input type="button" value="dividir" id="dividir">
+        </div>     
+    </div>
+
+    <div>
+        <h1>Elevar Valores</h1>
+
+        <div>
+            <input type="number" id="nel1">
+            <h5>elevado à</h5>
+            <input type="number" id="nel2">
+            <input type="button" value="elevar" id="elevar">
+        </div>     
+    </div>
+
+    <div>
+        <h1>Resto da Divisão</h1>
+
+        <div>
+            <input type="number" id="nre1">
+            <h5>/</h5>
+            <input type="number" id="nre2">
+            <input type="button" value="resto" id="resto">            
+        </div>
+    </div>
+
+    
+
+    <script>  
+
+    document.getElementById('somar').addEventListener('click',somar);
+    document.getElementById('multiplicar').addEventListener('click',multiplicar);
+    document.getElementById('subtrair').addEventListener('click',subtrair);
+    document.getElementById('dividir').addEventListener('click',dividir);
+    document.getElementById('elevar').addEventListener('click',elevar);
+    document.getElementById('resto').addEventListener('click',resto);
+
+        function somar(){
+
+            var tnso1 = document.getElementById('nso1');
+            var tnso2 = document.getElementById('nso2');
+
+            var nso1 = window.Number(tnso1.value);
+            var nso2 = window.Number(tnso2.value);
+            var soma = nso1+nso2;
+
+            if (nso1 || nso2 != "") {
+                alert(soma);
+            }else{
+                alert('Preencha todos os campos antes de obter o resultado.');
+            }
+
+            nso1='';
+            nso2='';
+            
+        }
+
+        function multiplicar(){
+
+            var tnmu1 = document.getElementById('nmu1');
+            var tnmu2 = document.getElementById('nmu2');
+
+            var nmu1 = window.Number(tnmu1.value);        
+            var nmu2 = window.Number(tnmu2.value);
+            var multiplicacao = nmu1*nmu2;
+
+            if (nmu1 || nmu2 != "") {
+                alert(multiplicacao);
+            }else{
+                alert('Preencha todos os campos antes de obter o resultado.');
+            }
+
+            nmu1='';
+            nmu2='';
+            
+        }
+
+        function subtrair(){
+            var tnsu1 = document.getElementById('nsu1');
+            var tnsu2 = document.getElementById('nsu2');
+
+            var nsu1 = window.Number(tnsu1.value);        
+            var nsu2 = window.Number(tnsu2.value);
+            var subtracao = nsu1-nsu2;
+
+            if (nsu1 || nsu2 != "") {
+                alert(subtracao);
+            }else{
+                alert('Preencha todos os campos antes de obter o resultado.');
+            }
+
+            nsu1='';
+            nsu2='';
+
+        }
+
+        function dividir(){
+            var tndi1 = document.getElementById('ndi1');
+            var tndi2 = document.getElementById('ndi2');
+
+            var ndi1 = window.Number(tndi1.value);        
+            var ndi2 = window.Number(tndi2.value);
+            var divisao = ndi1/ndi2;    
+
+            if (ndi1 || ndi2 != "") {
+                alert(divisao);
+            }else{
+                alert('Preencha todos os campos antes de obter o resultado.');
+            }
+
+            ndi1='';
+            ndi2='';
+            
+        }
+
+        function elevar(){
+            var tnel1 = document.getElementById('nel1');
+            var tnel2 = document.getElementById('nel2');
+
+            var nel1 = window.Number(tnel1.value);        
+            var nel2 = window.Number(tnel2.value);
+            var elevacao = nel1**nel2;
+
+            if (nel1 || nel2 != "") {
+                alert(elevacao);    
+            }else{
+                alert('Preencha todos os campos antes de obter o resultado.');
+            }
+
+            nel1='';
+            nel2='';
+           
+        }
+
+        function resto(){
+            var tnre1 = document.getElementById('nre1');
+            var tnre2 = document.getElementById('nre2');
+
+            var nre1 = window.Number(tnre1.value);        
+            var nre2 = window.Number(tnre2.value);
+            var restante = nre1%nre2;
+
+            if (nre1 || nre2 != "") {
+                alert(`o restante dessa operação de divisão de forma inteira é = ${restante}`);
+            }else{
+                alert('Preencha todos os campos antes de obter o resultado.');
+            }
+
+            nre1='';
+            nre2='';
+           
+        }
+
+
+    </script>
+</body>
+</html>

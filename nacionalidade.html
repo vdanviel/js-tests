@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+<style>
+.btn2{
+display: none;
+}
+.campo2{
+    display: none;
+}
+</style>
+<body>
+    <h2 id="titulo">Qual é seu nome?</h2>
+    <input type="text" id="input1" class="campo1">
+    <input type="text" id="input2" class="campo2" placeholder="DIGITE AQUI SEU PAÍS">
+    <input type="button" value="CLICK" id="prox1" class="btn1">
+    <input type="button" value="CLICK" id="prox2" class="btn2">
+
+    <h4 id="r"><br></h4>
+
+    <script>
+        document.getElementById('prox1').addEventListener('click', clicar1);
+        document.getElementById('prox2').addEventListener('click', clicar2);
+
+        //nome
+        function clicar1(){ 
+        nome = document.getElementById('input1').value;
+        titulo = document.getElementById('titulo');
+            if (nome.length > 0) {
+                titulo.innerHTML = `Qual sua nacionalidade, ${nome}?`;
+                document.getElementById('prox2').style.display = 'block';
+                document.getElementById('prox1').style.display = 'none';
+                document.getElementById('input2').style.display = 'block';
+                document.getElementById('input1').style.display = 'none';
+            }else{
+                window.alert(`Digite um nome válido.`);
+            }    
+            
+        }
+    
+        //nacionalidade
+        function clicar2(){
+            val = document.getElementById('input2').value;
+            const txt = document.getElementById('r');
+            const regex = /[0-9]/;
+
+            if (val.length <= 1 || val.length > 100 || regex.test(val) == true) {
+            window.alert(`Atenção, digite um país válido.`);
+
+            }else if (val == "Brasil" || val == "BRASIL"||val == "BR" ||val == "brasil" ||val == "Br" ||val == "br"){
+                txt.innerHTML = `${nome}, a sua nacionalidade é do Brasil.`; 
+
+                }else{
+                txt.innerHTML = `${nome}, a sua nacionalidade é do(a) ${val}.<br>
+                You are not a Brasilian.`;    
+
+                }
+            }
+
+    </script>
+</body>
+</html>

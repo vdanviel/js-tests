@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    background: #bfbfbf;
+}
+header{
+    background-color: #e6e6e6;
+}
+svg{
+    display: inline-block;
+    vertical-align: middle;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    cursor: default;
+    font-size: 46px;
+    padding: 15px;
+    margin: 0px;
+    padding-bottom: 0px;
+}
+img{
+    width: 100%;
+}
+
+div:nth-child(2){
+    justify-content: center;
+    display: flex;
+}
+.btns{
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+    top: -162px;
+    margin: 50px;
+    margin-bottom: 0;
+}
+input[type="button"]{
+    border: black 3px solid;
+    font-family: 'Roboto', sans-serif;
+    background: transparent;
+    color: black;
+    font-size: 25px;
+    padding:15px ;
+    cursor: pointer;
+    margin: 5px 0px;
+}
+
+input[type="button"]:hover{
+    border: white 3px solid;
+    color: white;
+}
+h5{
+    text-align: center;
+    color: white;
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 3px;
+}
+
+@media (max-width: 320px) {
+.btns{
+    bottom: 8px;
+    width: 100px;
+}
+input[type="button"]{
+    font-size: 16px;
+}
+}
+
+@media (max-width: 450px) {
+.btns{
+    top: -55px;
+    width: 180px;
+}
+
+}
+@media (max-width: 920px) {
+div:nth-child(2) {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 20px;
+}
+.btns{
+    top: -55px;
+    width: 430px;
+    margin: 0;
+    margin-top: 20px;
+}
+input[type="button"]{
+    font-size: 15px;
+}
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>SISTEMA DE MULTAS</h1>
+    <br>
+    <input type="number" id="velocidade" placeholder="DIGITE A VELOCIDADE DO CARRO">
+    <input type="button" value="Calcular" id="btn">
+    <h4 id="cont"></h4>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',clicar);
+        
+
+        function clicar(){
+            var val = window.document.getElementById('velocidade');
+            var vel = Number(val.value);
+            const txt = window.document.getElementById('cont');
+
+            if (vel > 60.5) {
+                window.alert(`Você ultrapassou o limite de velocidade da pista. Multado!`);
+                txt.innerHTML = `Você ultrapassou o limite de velocidade. <br>
+                Sua velocidade está em ${vel}Km/h.`;
+            }else{
+                window.alert(`Você está dentro dos limites de velocidade. Dirija com cautela.`);   
+                txt.innerHTML = `Você está dentro dos limites de velocidade. <br>
+                Sua velocidade é igual à ${vel}Km/h.`;
+            }
+        }
+    </script>
+</body>
+</html>

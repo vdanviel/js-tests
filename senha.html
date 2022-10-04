@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests</title>
+</head>
+<style>
+    h1{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+    body{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+        background-color: khaki;
+
+    }
+</style>
+<body>
+    
+
+
+    <script>
+       var nome 
+       var senha
+       
+       window.alert(`Answer the followings questions.`);
+       
+       nome = window.prompt('What is your name?');
+       senha = window.prompt('Type a password with more than 4 caracters:');
+
+       if(senha.length <= 4){
+        alert(`Warning, your password must has have more than 4 characters. You have type a password with (${senha.length}) characters.`);
+        alert(`Reload the page.`)
+        document.write(`Reload the page.`)
+       }else{
+           alert(`Your password has been made sucessfully.`);
+           document.write(`<h1>${nome}</h1>, your password have <h1>${senha.length}</h1> caracters.`)//write() escreve conteúdo no document (body do HTML).
+       }
+
+    </script>    
+</body>
+</html>

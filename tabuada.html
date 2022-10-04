@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+        html{
+            background: #e7c112;
+        }
+        .hidden{
+            display: none;
+        }
+        section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: 550px;
+        justify-content: space-around;
+        }
+        h1{
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            margin-bottom: 6px;
+        }
+        p{
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            margin-bottom: 6px;
+        }
+        .buttom{
+        background: #ebebeb;
+        width: fit-content;
+        align-self: center;
+        border-radius: 10px;
+        padding: 12px;
+        }
+        input[type='number']{
+        border: none;
+        border-radius: 10px;
+        height: 22px;
+        font-size: 20px;
+        width: 90px;
+        font-family: 'Roboto Mono', monospace;
+        }
+        select{
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bolder;
+        margin: 10px;
+        padding: 5px;
+        width: fit-content;
+        height: 200px;
+        align-self: center;
+        overflow-y: hidden;
+        border-radius: 10px;
+        border: 3px #ebebeb solid;
+        }
+        button{
+        width: fit-content;
+        align-self: center;
+        border: none;
+        border-radius: 10px;
+        font-size: 21px;
+        margin: 5px;
+        background:  #e7c112;
+        font-family: 'Roboto Mono', monospace;
+        cursor: pointer;
+        font-weight: bold;
+        }
+        h6{
+            font-family: 'Roboto Mono', monospace;
+            margin: 2px 0px;
+        }
+        h5{
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            margin: 0;
+        }
+        section div:nth-child(2){
+            align-self: center;
+            height: fit-content;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .list{
+        background: white;
+        width: fit-content;
+        padding: 12px;
+        border-radius: 16px;
+        border: #ebebeb solid 3px;
+        text-align: center;
+        font-size: 20px ;
+        }
+    </style>
+
+</head>
+<body>
+
+    <section>
+    <div class="buttom">
+            <h1>Tabuada ❌</h1>
+            <p>Digite o número da tabuada no campo</p>
+            <input type="number" name="" id="nt">
+        
+            <button id="btn">Montar Tabuada</button>
+        </div>
+
+        
+        <div>
+            <div name="tabuada" id="tabu" class="hidden list"></div>
+            <p id="before">Analizando...</p>
+        </div>
+ 
+        <h5>Direitos Reservados: Victor Daniel</h5>
+    </section>
+
+    <!--JAVASCRIPT-->
+    <script>
+        var num = document.getElementById('nt');
+        var btn = document.getElementById('btn');
+
+        var list = document.getElementById('tabu');
+
+        btn.addEventListener('click', tabuada)
+
+        function tabuada() {
+            list.classList.remove("hidden");
+            list.innerHTML=""
+
+            document.querySelector('p#before').innerHTML="";
+
+            for (let c = 1; c < 11; c++) {
+                var create = document.createElement('h6');
+                create.innerHTML = `${Number(num.value)}x${c}=${c * Number(num.value)}`;
+                list.appendChild(create);
+        }
+    }
+    </script>
+</body>
+</html>

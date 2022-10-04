@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<style>
+
+    /*@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');*/
+
+    html{
+        height: 100%;
+    }
+    body{
+        background-color: cornflowerblue;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .bloco{
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        padding: 10px;
+    }
+    .section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+    }
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+    .bloco section h2{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 6px 0px;
+    }
+    input[type="number"]{
+        border: transparent;
+        border-radius: 10px;
+        padding: 8px 0px;
+        width: 112px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    button{
+        font-family: Arial, Helvetica, sans-serif;
+        border: transparent;
+        margin-top: 8px;
+        background: cornflowerblue;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+    }
+    h3{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        height: 30%;
+        text-align: center;
+    }
+    h5{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0px;
+
+    }
+</style>
+<body>
+<h1>Contador 🔢</h1>
+<i><h3>Atenção: Contagens excessivas podem travar o seu sistema, nós não nos responsabilizamos por isso.</h3></i>
+    <div class="bloco">
+        <section>
+            <h2>Do número</h2>
+            <div><input type="number" name="de" id="i"></div>
+            <h2>Ao número</h2>
+            <div><input type="number" name="ao" id="f"></div>
+            <h2>Passos</h2>
+            <div><input type="number" name="passo" id="p"></div>
+
+            <button id="btn" onclick="clicar()">Iniciar</button>
+
+        </section>
+    </div>
+
+    <h3 id="r">Analizando...</h3>
+
+<h5>Direitos Reservados: Victor Daniel</h5>
+    <!--JAVASCRIPT-->
+    <script>
+        function clicar(){  
+            if (document.querySelector('h5')) { //ele entende o chamado do elemento como uma "existência"
+                document.querySelector('h5').remove();    
+            }
+            
+
+            var ini = document.getElementById('i');
+            var final = document.getElementById('f');
+            var passos = document.getElementById('p');
+
+            var i = Number(ini.value);
+            var f = Number(final.value);
+            var p = Number(passos.value);
+
+            var r = document.getElementById('r');
+
+                if (ini.value.length == 0|| final.value.length == 0 || passos.value.length == 0 ||i == 0 && f == 0|| i < 0 || f < 0) {
+                    window.alert('Dados inválidos. Preencha novamente.');
+                    r.innerHTML = `Preencha novamente com atenção.`;
+                }else if (p == 0 ){
+                    window.alert('O passos não podem ser igual à zero ou nulos. CONSIDERANDO PASSO EM 1...');
+                    p = 1;
+
+                    r.innerHTML = "";
+                    for (let c = i; c <= f; c += p) {
+                        r.innerHTML += `${c} `;
+                    }
+                        r.innerHTML += `\u{1F3F4}`;
+                }else if (f < i){
+                    window.alert('Mudando para forma DECRESCENTE...');
+                    r.innerHTML = "";
+                    for (let c = i; f <= c; c -= p) {
+                        r.innerHTML += `${c} `;
+                    }
+                        r.innerHTML += `\u{1F3F4}`;
+
+                }else{
+
+                r.innerHTML = "";
+                    for (let c = i; c <= f; c += p) {
+                        r.innerHTML += `${c} `;
+                    }
+                        r.innerHTML += `\u{1F3F4}`;
+
+            }
+        } 
+
+    </script>
+</body>
+</html>
